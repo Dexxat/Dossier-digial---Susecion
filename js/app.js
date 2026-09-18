@@ -1,233 +1,138 @@
-// Lógica de armado del sitio a partir de SUCESION_DATA (ver js/data.js).
+const PROOFS = {};
+PROOFS['ALVAREZ.png'] = 'assets/proofs/ALVAREZ.png';
+PROOFS['DEFF_04.png'] = 'assets/proofs/DEFF_04.png';
+PROOFS['MARCHISIO.png'] = 'assets/proofs/MARCHISIO.png';
+PROOFS['MARIANO_COSTA.png'] = 'assets/proofs/MARIANO_COSTA.png';
+PROOFS['MIRTAF2.png'] = 'assets/proofs/MIRTAF2.png';
+PROOFS['MIRTAF3.png'] = 'assets/proofs/MIRTAF3.png';
+PROOFS['MIRTAF4.png'] = 'assets/proofs/MIRTAF4.png';
+PROOFS['MIRTAF5.png'] = 'assets/proofs/MIRTAF5.png';
+PROOFS['MIRTAF6.png'] = 'assets/proofs/MIRTAF6.png';
+PROOFS['MIRTA_F.png'] = 'assets/proofs/MIRTA_F.png';
+PROOFS['SMS.png'] = 'assets/proofs/SMS.png';
+PROOFS['daydes01.png'] = 'assets/proofs/daydes01.png';
+PROOFS['daydes_nelida.png'] = 'assets/proofs/daydes_nelida.png';
+PROOFS['print_med_cuit.png'] = 'assets/proofs/print_med_cuit.png';
+PROOFS['susana_di_dante_DT.png'] = 'assets/proofs/susana_di_dante_DT.png';
+PROOFS['daydesfoto_grupal_nelida.jpg'] = 'assets/proofs/daydesfoto_grupal_nelida.jpg';
+PROOFS['ANSES_LAGO.pdf'] = 'assets/proofs/ANSES_LAGO.pdf';
+PROOFS['DEFF_02.pdf'] = 'assets/proofs/DEFF_02.pdf';
+PROOFS['DEFF_03.pdf'] = 'assets/proofs/DEFF_03.pdf';
+PROOFS['DEFF_06.pdf'] = 'assets/proofs/DEFF_06.pdf';
+PROOFS['DEFF_SA_HEIC.pdf'] = 'assets/proofs/DEFF_SA_HEIC.pdf';
+PROOFS['daydes_va_solo.pdf'] = 'assets/proofs/daydes_va_solo.pdf';
+PROOFS['print_med_1.pdf'] = 'assets/proofs/print_med_1.pdf';
 
-const PX_POR_ANIO = 150;
-const MS_POR_ANIO = 365.25 * 24 * 60 * 60 * 1000;
-const PALETA_PROPIEDADES = ["#8a6a3b", "#3c5a6e", "#5f7a52", "#7a4b5c", "#4b5d7a"];
+PROOFS['SUSTITUYE_LETRADOS__IMPUGNA_INVENTARIO_Y_AVALUO.pdf'] = 'assets/proofs/SUSTITUYE_LETRADOS__IMPUGNA_INVENTARIO_Y_AVALUO.pdf';
+PROOFS['IMPUGNA_RENDICION_DE_CUENTAS.pdf'] = 'assets/proofs/IMPUGNA_RENDICION_DE_CUENTAS.pdf';
+PROOFS['LEMBEYE_CONTESTA_TRASLADO.pdf'] = 'assets/proofs/LEMBEYE_CONTESTA_TRASLADO.pdf';
+PROOFS['Peritaje_Informe.pdf'] = 'assets/proofs/Peritaje_Informe.pdf';
+PROOFS['CAREGNATO.pdf'] = 'assets/proofs/CAREGNATO.pdf';
+PROOFS['IMG_5024_HEIC.pdf'] = 'assets/proofs/IMG_5024_HEIC.pdf';
+PROOFS['IMG_50281_HEIC.pdf'] = 'assets/proofs/IMG_50281_HEIC.pdf';
+PROOFS['IMG_50361_HEIC.pdf'] = 'assets/proofs/IMG_50361_HEIC.pdf';
+PROOFS['PERSONAS_INVOLUCRADAS_Y_COMENTARIO_FINAL.pdf'] = 'assets/proofs/PERSONAS_INVOLUCRADAS_Y_COMENTARIO_FINAL.pdf';
+PROOFS['resumen_Seguendo_Escrito_Final.pdf'] = 'assets/proofs/resumen_Seguendo_Escrito_Final.pdf';
+PROOFS['RESUMEN_GLOBAL_DAMO.pdf'] = 'assets/proofs/RESUMEN_GLOBAL_DAMO.pdf';
+PROOFS['resuemen0.pdf'] = 'assets/proofs/resuemen0.pdf';
+PROOFS['Estructura_global_del_proyecto_.pdf'] = 'assets/proofs/Estructura_global_del_proyecto_.pdf';
+PROOFS['municipalidad_San_Miguel.png'] = 'assets/proofs/municipalidad_San_Miguel.png';
 
-function parseFecha(str) {
-  if (!str) return null;
-  const [y, m, d] = str.split("-").map(Number);
-  return new Date(y, m - 1, d);
-}
-
-function fmtFecha(str) {
-  const f = parseFecha(str);
-  if (!f) return "Actualidad";
-  return f.toLocaleDateString("es-UY", { day: "2-digit", month: "2-digit", year: "numeric" });
-}
-
-function fmtMonto(monto, moneda) {
-  const n = Number(monto || 0);
-  return `${moneda || "UYU"} ${n.toLocaleString("es-UY", { maximumFractionDigits: 0 })}`;
-}
-
-function mesesEntre(inicio, fin) {
-  const i = parseFecha(inicio);
-  const f = fin ? parseFecha(fin) : new Date();
-  if (!i || !f) return 0;
-  const meses = (f.getFullYear() - i.getFullYear()) * 12 + (f.getMonth() - i.getMonth());
-  return Math.max(1, meses);
-}
-
-function totalAlquiler(a) {
-  return mesesEntre(a.inicio, a.fin) * Number(a.montoMensual || 0);
-}
-
-function totalesPropiedad(p) {
-  const totalIngresos = (p.alquileres || []).reduce((acc, a) => acc + totalAlquiler(a), 0);
-  const totalGastos = (p.gastos || []).reduce((acc, g) => acc + Number(g.monto || 0), 0);
-  return { totalIngresos, totalGastos, neto: totalIngresos - totalGastos };
-}
-
-function calcularRango(data) {
-  let anioMin = new Date().getFullYear();
-  const anioMax = new Date().getFullYear();
-  const fechas = [];
-  data.globalTimeline.forEach((e) => fechas.push(e.fecha));
-  data.properties.forEach((p) => {
-    (p.alquileres || []).forEach((a) => {
-      fechas.push(a.inicio);
-      if (a.fin) fechas.push(a.fin);
-    });
-    (p.gastos || []).forEach((g) => fechas.push(g.fecha));
-  });
-  fechas.forEach((f) => {
-    const d = parseFecha(f);
-    if (d) anioMin = Math.min(anioMin, d.getFullYear());
-  });
-  anioMin = Math.min(anioMin, 2019);
-  return { anioMin, anioMax, inicio: new Date(anioMin, 0, 1), fin: new Date(anioMax, 11, 31) };
-}
-
-function xPara(fecha, rango) {
-  const d = fecha instanceof Date ? fecha : parseFecha(fecha) || new Date();
-  const anios = (d - rango.inicio) / MS_POR_ANIO;
-  return anios * PX_POR_ANIO;
-}
-
-function crearEjeAnios(rango) {
-  const eje = document.createElement("div");
-  eje.className = "timeline-axis";
-  for (let a = rango.anioMin; a <= rango.anioMax; a++) {
-    const tick = document.createElement("div");
-    tick.className = "timeline-tick";
-    tick.style.left = `${xPara(new Date(a, 0, 1), rango)}px`;
-    const label = document.createElement("span");
-    label.textContent = a;
-    tick.appendChild(label);
-    eje.appendChild(tick);
-  }
-  return eje;
-}
-
-function renderGlobalTimeline(container, eventos, rango) {
-  container.innerHTML = "";
-  const wrap = document.createElement("div");
-  wrap.className = "timeline-wrap";
-  const timeline = document.createElement("div");
-  timeline.className = "timeline timeline-global";
-  const anchoTotal = (rango.anioMax - rango.anioMin + 1) * PX_POR_ANIO;
-  timeline.style.width = `${anchoTotal}px`;
-
-  timeline.appendChild(crearEjeAnios(rango));
-
-  const linea = document.createElement("div");
-  linea.className = "timeline-line";
-  timeline.appendChild(linea);
-
-  const ordenados = [...eventos].sort((a, b) => parseFecha(a.fecha) - parseFecha(b.fecha));
-  ordenados.forEach((ev, i) => {
-    const x = xPara(ev.fecha, rango);
-    const marcador = document.createElement("div");
-    marcador.className = `timeline-event ${i % 2 === 0 ? "arriba" : "abajo"}`;
-    marcador.style.left = `${x}px`;
-    marcador.innerHTML = `
-      <div class="timeline-event-dot"></div>
-      <div class="timeline-event-card">
-        <span class="timeline-event-fecha">${fmtFecha(ev.fecha)}</span>
-        <strong>${ev.titulo}</strong>
-        ${ev.detalle ? `<span class="timeline-event-detalle">${ev.detalle}</span>` : ""}
-      </div>`;
-    timeline.appendChild(marcador);
-  });
-
-  wrap.appendChild(timeline);
-  container.appendChild(wrap);
-}
-
-function renderPropertyTimeline(container, alquileres, rango, color) {
-  container.innerHTML = "";
-  if (!alquileres || alquileres.length === 0) {
-    container.innerHTML = '<p class="timeline-vacio">Todavía no hay períodos de alquiler cargados para esta propiedad.</p>';
-    return;
-  }
-  const wrap = document.createElement("div");
-  wrap.className = "timeline-wrap";
-  const timeline = document.createElement("div");
-  timeline.className = "timeline timeline-propiedad";
-  const anchoTotal = (rango.anioMax - rango.anioMin + 1) * PX_POR_ANIO;
-  timeline.style.width = `${anchoTotal}px`;
-  timeline.appendChild(crearEjeAnios(rango));
-
-  const ordenados = [...alquileres].sort((a, b) => parseFecha(a.inicio) - parseFecha(b.inicio));
-  const filas = []; // cada fila guarda la fecha fin del último bloque colocado
-  const asignaciones = ordenados.map((a) => {
-    const inicio = parseFecha(a.inicio);
-    const fin = a.fin ? parseFecha(a.fin) : new Date();
-    let fila = filas.findIndex((finFila) => finFila <= inicio);
-    if (fila === -1) {
-      fila = filas.length;
-      filas.push(fin);
-    } else {
-      filas[fila] = fin;
+// Inject thumbnails after load
+window.addEventListener('load', function() {
+  var thumbMap = {
+    'th-daydes01': 'daydes01.png',
+    'th-daydes_nelida': 'daydes_nelida.png',
+    'th-daydesfoto': 'daydesfoto_grupal_nelida.jpg',
+    'th-DEFF_04': 'DEFF_04.png',
+    'th-MIRTA_F': 'MIRTA_F.png',
+    'th-MIRTAF2': 'MIRTAF2.png',
+    'th-MIRTAF3': 'MIRTAF3.png',
+    'th-MIRTAF4': 'MIRTAF4.png',
+    'th-MIRTAF5': 'MIRTAF5.png',
+    'th-MIRTAF6': 'MIRTAF6.png',
+    'th-MARCHISIO': 'MARCHISIO.png',
+    'th-ALVAREZ': 'ALVAREZ.png',
+    'th-susana': 'susana_di_dante_DT.png',
+    'th-MARIANO_COSTA': 'MARIANO_COSTA.png',
+    'th-SMS': 'SMS.png',
+    'th-print_med_cuit': 'print_med_cuit.png'
+  };
+  for(var id in thumbMap) {
+    var el = document.getElementById(id);
+    if(el && PROOFS[thumbMap[id]]) {
+      var img = document.createElement('img');
+      img.src = PROOFS[thumbMap[id]];
+      el.appendChild(img);
     }
-    return { alquiler: a, fila, inicio, fin };
-  });
+  }
+});
 
-  timeline.style.height = `${100 + filas.length * 56}px`;
+var currentFile = null;
 
-  asignaciones.forEach(({ alquiler, fila, inicio, fin }) => {
-    const x1 = xPara(inicio, rango);
-    const x2 = xPara(fin, rango);
-    const barra = document.createElement("div");
-    barra.className = "timeline-bar";
-    barra.style.left = `${x1}px`;
-    barra.style.width = `${Math.max(x2 - x1, 6)}px`;
-    barra.style.top = `${52 + fila * 56}px`;
-    barra.style.background = color;
-    barra.innerHTML = `
-      <span class="timeline-bar-monto">${fmtMonto(alquiler.montoMensual, alquiler.moneda)}/mes</span>
-      <span class="timeline-bar-periodo">${fmtFecha(alquiler.inicio)} – ${fmtFecha(alquiler.fin)}</span>
-    `;
-    barra.title = `${alquiler.contratoRef || "Contrato"} · ${alquiler.inquilino || ""}`;
-    timeline.appendChild(barra);
-  });
-
-  wrap.appendChild(timeline);
-  container.appendChild(wrap);
-}
-
-function renderTablaAlquileres(container, alquileres) {
-  if (!alquileres || alquileres.length === 0) {
-    container.innerHTML = '<p class="tabla-vacia">Sin contratos de alquiler cargados.</p>';
+function openProof(filename, title) {
+  currentFile = filename;
+  var content = document.getElementById('modal-content');
+  content.innerHTML = '';
+  var data = PROOFS[filename];
+  if(!data) {
+    content.innerHTML = '<div class="no-preview" style="padding:40px;text-align:center;color:var(--text2)">⚠ Archivo no disponible en esta versión.</div>';
+    document.getElementById('modal-title').textContent = filename;
+    document.getElementById('modal').classList.add('open');
     return;
   }
-  const filas = [...alquileres]
-    .sort((a, b) => parseFecha(a.inicio) - parseFecha(b.inicio))
-    .map(
-      (a) => `
-      <tr>
-        <td>${fmtFecha(a.inicio)}</td>
-        <td>${fmtFecha(a.fin)}</td>
-        <td>${a.inquilino || "—"}</td>
-        <td>${fmtMonto(a.montoMensual, a.moneda)}/mes</td>
-        <td>${fmtMonto(totalAlquiler(a), a.moneda)}</td>
-        <td>${a.contratoRef || "—"}</td>
-      </tr>`
-    )
-    .join("");
-  container.innerHTML = `
-    <table class="tabla-datos">
-      <thead>
-        <tr><th>Inicio</th><th>Fin</th><th>Inquilino</th><th>Monto mensual</th><th>Total del período</th><th>Contrato</th></tr>
-      </thead>
-      <tbody>${filas}</tbody>
-    </table>`;
-}
-
-function renderTablaGastos(container, gastos) {
-  if (!gastos || gastos.length === 0) {
-    container.innerHTML = '<p class="tabla-vacia">Sin gastos cargados.</p>';
-    return;
+  document.getElementById('modal-title').textContent = title || filename;
+  if(filename.match(/\.pdf$/i)) {
+    var iframe = document.createElement('iframe');
+    iframe.src = data;
+    iframe.style.cssText = 'width:100%;height:72vh;border:none;';
+    content.appendChild(iframe);
+    var link = document.createElement('div');
+    link.style.cssText = 'text-align:right;padding:6px 12px;';
+    link.innerHTML = '<a href="'+data+'" target="_blank" style="color:var(--amber);font-family:var(--mono);font-size:10px;text-decoration:none;">↗ Abrir en nueva pestaña</a>';
+    content.appendChild(link);
+  } else {
+    var img = document.createElement('img');
+    img.src = data;
+    img.style.cssText = 'max-width:100%;max-height:75vh;object-fit:contain;display:block;margin:auto;';
+    content.appendChild(img);
   }
-  const filas = [...gastos]
-    .sort((a, b) => parseFecha(a.fecha) - parseFecha(b.fecha))
-    .map(
-      (g) => `
-      <tr>
-        <td>${fmtFecha(g.fecha)}</td>
-        <td>${g.concepto || "—"}</td>
-        <td>${fmtMonto(g.monto, g.moneda)}</td>
-        <td>${g.comprobante || "—"}</td>
-      </tr>`
-    )
-    .join("");
-  container.innerHTML = `
-    <table class="tabla-datos">
-      <thead><tr><th>Fecha</th><th>Concepto</th><th>Monto</th><th>Comprobante</th></tr></thead>
-      <tbody>${filas}</tbody>
-    </table>`;
+  document.getElementById('modal').classList.add('open');
 }
 
-function aplicarBannerBorrador(data) {
-  const banner = document.getElementById("banner-borrador");
-  if (!banner) return;
-  banner.hidden = !data.meta.isDraft;
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-content').innerHTML = '';
+  currentFile = null;
 }
 
-function aplicarTextosMeta(data) {
-  document.querySelectorAll("[data-meta]").forEach((el) => {
-    const clave = el.getAttribute("data-meta");
-    if (data.meta[clave] !== undefined) el.textContent = data.meta[clave];
+function downloadProof() {
+  if(!currentFile || !PROOFS[currentFile]) return;
+  var a = document.createElement('a');
+  a.href = PROOFS[currentFile];
+  a.download = currentFile;
+  a.click();
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if(e.target === this) closeModal();
+});
+
+function filterProofs(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.proof-item').forEach(function(item){
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
   });
+}
+
+function showPage(id, el) {
+  document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('visible'); });
+  document.getElementById('page-'+id).classList.add('visible');
+  if(el) {
+    document.querySelectorAll('nav a').forEach(function(a){ a.classList.remove('active'); });
+    document.querySelectorAll('.sidebar-link').forEach(function(a){ a.classList.remove('active'); });
+    el.classList.add('active');
+  }
 }

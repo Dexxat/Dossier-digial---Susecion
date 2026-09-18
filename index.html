@@ -1,55 +1,335 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dossier de la sucesión — Rendición de cuentas</title>
-  <link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAMO, DOMINGO ERNESTO S/ Sucesión Testamentaria — Expte. 26712-2019</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="banner-borrador" hidden>
-    Datos de ejemplo — reemplazar en <code>js/data.js</code> con la información real de los contratos.
+
+<header>
+  <div class="logo-area" onclick="showPage('indice')" style="cursor:pointer">
+    <div class="logo-badge">DO</div>
+    <div class="logo-text">DOSSIER <span style="color:var(--text2);font-size:10px;font-weight:400;letter-spacing:.05em"> · DAMO, DOMINGO ERNESTO S/ SUCESIÓN TESTAMENTARIA · Expte. 26712-2019</span></div>
+  </div>
+</header>
+
+<div class="disclaimer-note">Las capturas fueron realizadas desde el <strong style="color:#e87060;margin:0 4px">iPhone X del fallecido</strong>, disponible para pericia judicial. Las pruebas aquí presentadas representan aproximadamente el <strong style="margin:0 4px">60%</strong> del total archivado. Múltiples backups físicos y digitales.</div>
+
+<div class="main-grid">
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-label">Navegación</div>
+    <div class="sidebar-link" onclick="showPage('mapa',this)"><span class="dot"></span> Mapa Societarios <span class="badge">9</span></div>
+    <div class="sidebar-link" onclick="showPage('personas',this)"><span class="dot"></span> Personas <span class="badge">19+</span></div>
+    <div class="sidebar-link" onclick="showPage('legal',this)"><span class="dot"></span> Delitos</div>
+    <div class="sidebar-link" onclick="showPage('dev',this)"><span class="dot"></span> Comentario</div>
+  </div>
+</aside>
+
+<main class="content">
+
+<!-- ══ ÍNDICE ══ -->
+<section class="page-section visible" id="page-indice">
+  <div class="section-title"><h2>Índice General</h2><span class="tag">1A</span></div>
+  <div class="index-grid">
+    <div class="index-card" onclick="showPage('mapa',null)">
+      <div class="card-code">2A — SECCIÓN</div>
+      <div class="card-title">Mapa Societario</div>
+      <div class="card-desc">Red de sociedades vinculadas. Estructura de control, fechas de fundación y relaciones entre entidades.</div>
+      <div class="card-footer"><span class="card-count">9 sociedades documentadas</span><span class="card-arrow">→</span></div>
+    </div>
+    <div class="index-card" onclick="showPage('personas',null)">
+      <div class="card-code">2C — SECCIÓN</div>
+      <div class="card-title">Personas Involucradas</div>
+      <div class="card-desc">Directores, socios, trabajadores de confianza y vínculos familiares en la trama societaria.</div>
+      <div class="card-footer"><span class="card-count">+19 personas identificadas</span><span class="card-arrow">→</span></div>
+    </div>
+    <div class="index-card" onclick="showPage('dev',null)">
+      <div class="card-code">2E — SECCIÓN</div>
+      <div class="card-title">Comentario del Dev</div>
+      <div class="card-desc">Declaración directa. Contexto personal sobre la situación y las razones de este testimonio.</div>
+      <div class="card-footer"><span class="card-count">Declaración personal</span><span class="card-arrow">→</span></div>
+    </div>
+    <div class="index-card" onclick="showPage('legal',null)">
+      <div class="card-code">2F — SECCIÓN</div>
+      <div class="card-title">Posibles Delitos</div>
+      <div class="card-desc">Licitaciones arregladas con municipalidades, administración fraudulenta, triangulación de fondos y otros delitos.</div>
+      <div class="card-footer"><span class="card-count">Análisis completo</span><span class="card-arrow">→</span></div>
+    </div>
   </div>
 
-  <header class="encabezado">
-    <div class="contenedor">
-      <div class="kicker">Rendición de cuentas</div>
-      <h1 data-meta="tituloSucesion">Sucesión</h1>
-      <p class="subtitulo" data-meta="subtitulo">Alquileres y gastos de mantenimiento</p>
-      <span class="periodo" data-meta="periodoTexto">2019 — actualidad</span>
+  <div class="section-title"><h2>Actores Principales</h2><span class="tag">RESUMEN</span></div>
+  <div class="summary-cards">
+    <div class="sum-card">
+      <div class="sum-label">Fallecido</div>
+      <div class="sum-name">ERNESTO DAMO</div>
+      <div class="sum-role">Fundador principal. Alias emails: Emerson Dalton / Jorge González. Único de los socios con presencia real en DAYDES.</div>
+      <div class="sum-tags"><span class="soc-tag">DAYDES</span><span class="soc-tag">DETAL PA</span><span class="soc-tag alerta">Fallecido</span></div>
     </div>
-  </header>
+    <div class="sum-card">
+      <div class="sum-label">Activo</div>
+      <div class="sum-name">SEBASTIÁN DAMO</div>
+      <div class="sum-role">Hijo de Ernesto. Ocupa su lugar post-fallecimiento. Viajes mensuales a Paraguay con Rochetti. Presidente en múltiples sociedades.</div>
+      <div class="sum-tags"><span class="soc-tag">DAYDES</span><span class="soc-tag">METABOLIK</span><span class="soc-tag">DETAL PA</span><span class="soc-tag">CONST 32</span></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">Fallecida 2025</div>
+      <div class="sum-name">LILIANA PATRICIA LAGO</div>
+      <div class="sum-role">Parte en la sucesión. Sometida a presiones documentadas: retiro de medicamentos, amenazas económicas, obligada a firmar.</div>
+      <div class="sum-tags"><span class="soc-tag alerta">Presiones documentadas</span><span class="soc-tag alerta">Fallecida</span></div>
+    </div>
+  </div>
+</section>
 
-  <main class="contenedor">
-    <section class="bloque">
-      <p class="bloque-intro" data-meta="introduccion"></p>
-    </section>
+<!-- ══ MAPA SOCIETARIO ══ -->
+<section class="page-section" id="page-mapa">
+  <div class="section-title"><h2>Mapa Societario</h2><span class="tag">2A</span></div>
+  <p style="color:var(--text2);font-size:13px;margin-bottom:16px;">Hacé clic en cada sociedad o conexión para ver detalles y pruebas adjuntas.</p>
 
-    <section class="bloque">
-      <h2>Cronología general de la sucesión</h2>
-      <p class="bloque-intro">Hitos generales del proceso sucesorio, independientes de cada propiedad.</p>
-      <div id="global-timeline"></div>
-    </section>
+<div id="mapa-app-root-wrap" style="background:#0d1117;border:1px solid #2a2a30;border-radius:4px;overflow:hidden;margin-bottom:32px;">
+  <div id="mapa-app-root"></div>
+</div>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel" src="js/mapa.js"></script>
 
-    <section class="bloque">
-      <h2>Resumen de ingresos y gastos por propiedad</h2>
-      <p class="bloque-intro">Totales acumulados desde 2019, calculados a partir de los contratos y comprobantes cargados en cada propiedad.</p>
-      <div id="resumen-tabla"></div>
-    </section>
 
-    <section class="bloque">
-      <h2>Propiedades</h2>
-      <p class="bloque-intro">Seleccioná una propiedad para ver su descripción y la cronología detallada de alquileres.</p>
-      <div id="menu-propiedades" class="grilla-propiedades"></div>
-    </section>
-  </main>
+  <div class="map-section" style="display:none;">
+    <div class="map-title">Sebastián Damo — Control directo y de facto</div>
+    <div class="society-grid">
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">DAYDES S.A.</div><div class="soc-type">S.A.</div></div>
+        <div class="soc-detail"><span class="key">Sede:</span> San Lorenzo 1640, San Miguel</div>
+        <div class="soc-detail"><span class="key">Rubro:</span> Droguería / Salud / Licitaciones</div>
+        <div class="soc-detail"><span class="key">Presidente:</span> Sebastián Damo (de facto)</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Principal</span><span class="soc-tag alerta">Licitaciones</span><span class="soc-tag">Comercio Ext. PY</span></div>
+        <div class="soc-files">Archivos: <span>DAYDES*</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">DETAL PA S.A.</div><div class="soc-type">S.A.</div></div>
+        <div class="soc-detail"><span class="key">Nombre:</span> "De tal palo, tal astilla"</div>
+        <div class="soc-detail"><span class="key">Fundadores:</span> Ernesto Damo + Sebastián Damo</div>
+        <div class="soc-detail"><span class="key">Sebastián:</span> Retoma presidencia 03/05/2019</div>
+        <div class="soc-detail"><span class="key">Nota:</span> 1 mes post-fallecimiento Pachuli</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Recuperación post-muerte</span></div>
+        <div class="soc-files">Archivos: <span>DETALPA*</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">CONSTRUCCIONES 32 S.A.</div><div class="soc-type">S.A.</div></div>
+        <div class="soc-detail"><span class="key">Fundación:</span> 27/07/2021</div>
+        <div class="soc-detail"><span class="key">Sebastián:</span> 60.000 acciones, presidente</div>
+        <div class="soc-detail"><span class="key">V. Botello:</span> 20.000 acc., Dir. Suplente</div>
+        <div class="soc-detail"><span class="key">Julieta Damo:</span> 20.000 acciones</div>
+        <div class="soc-tags"><span class="soc-tag">Expediente activo</span></div>
+        <div class="soc-files">Archivos: <span>construcciones_32*</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">MIX TRADING S.R.L.</div><div class="soc-type">SRL — PY</div></div>
+        <div class="soc-detail"><span class="key">País:</span> Paraguay</div>
+        <div class="soc-detail"><span class="key">Escritura:</span> N°21 — 08/02/2018</div>
+        <div class="soc-detail"><span class="key">Sebastián:</span> 111/112 cuotas, gerente único</div>
+        <div class="soc-detail"><span class="key">F. Vinci:</span> 1 cuota</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Comercio exterior — PY</span></div>
+        <div class="soc-files">Archivos: <span>MIXTRADING*</span></div>
+      </div>
+    </div>
+  </div>
 
-  <footer class="pie contenedor">
-    <p data-meta="notaPie"></p>
-  </footer>
+  <div class="map-section">
+    <div class="map-title">Sebastián Damo + Marcela Caregnato — Control conjunto</div>
+    <div class="society-grid">
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">METABOLIK S.A.</div><div class="soc-type">S.A.</div></div>
+        <div class="soc-detail"><span class="key">Fundación:</span> 12/09/2011</div>
+        <div class="soc-detail"><span class="key">Presidente:</span> Sebastián Damo</div>
+        <div class="soc-detail"><span class="key">Dir. Suplente:</span> M.S. Caregnato</div>
+        <div class="soc-detail"><span class="key">3er socio:</span> Carolina Luján Ríos</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Logística fantasma</span><span class="soc-tag alerta">Omitida en peritaje</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">DEFF S.A.</div><div class="soc-type">S.A.</div></div>
+        <div class="soc-detail"><span class="key">Fundación:</span> 12/03/2013</div>
+        <div class="soc-detail"><span class="key">Fundador:</span> Pachuli (Domingo Ernesto)</div>
+        <div class="soc-detail"><span class="key">Presidenta:</span> M.S. Caregnato (desde 26/06/2019)</div>
+        <div class="soc-detail"><span class="key">Dir. Suplente:</span> Fernando Huidobro</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Inmuebles JC Paz</span><span class="soc-tag alerta">Omitida en peritaje</span></div>
+        <div class="soc-files">Archivos: <span>DEFF*</span></div>
+      </div>
+    </div>
+  </div>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/index.js"></script>
+  <div class="map-section">
+    <div class="map-title">Red de droguerías vinculadas</div>
+    <div class="society-grid">
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">AUTONOMÍA MEDICINAL SRL</div><div class="soc-type">SRL</div></div>
+        <div class="soc-detail"><span class="key">Vinculado:</span> José María Lago</div>
+        <div class="soc-detail"><span class="key">Personal:</span> Nélida González, F. Vinci, Mirta Fuchs, Marchisio, Luna Damo, Agustina Marchisio</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Licitaciones</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">PRINT MED</div><div class="soc-type">Droguería</div></div>
+        <div class="soc-detail"><span class="key">DT:</span> Mirta Fuchs (farmacéutica)</div>
+        <div class="soc-detail"><span class="key">También:</span> Susana Di Sante</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Licitaciones</span></div>
+        <div class="soc-files">Archivos: <span>print_med*</span></div>
+      </div>
+      <div class="society-card">
+        <div class="soc-header"><div class="soc-name">TRUST MÉDICA</div><div class="soc-type">Droguería</div></div>
+        <div class="soc-detail"><span class="key">Personal:</span> F. Huidobro, M. Costa, Mirta Fuchs, S. Di Sante, Luis Zanini</div>
+        <div class="soc-tags"><span class="soc-tag alerta">Licitaciones</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PERSONAS ══ -->
+<section class="page-section" id="page-personas">
+  <div class="section-title"><h2>Personas Involucradas</h2><span class="tag">2C</span></div>
+  <div class="person-list">
+    <div class="person-row"><div class="person-name">ERNESTO DAMO <small style="color:var(--amber)">"PACHULI"</small></div><div class="person-role">Fundador principal. Alias en emails: <em>Emerson Dalton</em> y <em>Jorge González</em>. Único de los socios que cumplía horarios y presencismo en DAYDES. También fundador de DEFF S.A. (domicilio Catriel 545). <strong style="color:#e87060">Fallecido.</strong></div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">DETAL PA</span><span class="org-pill">DEFF</span></div></div>
+    <div class="person-row"><div class="person-name">SEBASTIÁN DAMO</div><div class="person-role">Hijo de Ernesto. Ocupa su lugar tras el fallecimiento. Preside de facto la red de droguerías del grupo.</div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">METABOLIK</span><span class="org-pill">DETAL PA</span><span class="org-pill">CONST 32</span><span class="org-pill">MIX TRADING</span></div></div>
+    <div class="person-row"><div class="person-name">DELLA GIOVANNA, J.M.<br><small style="color:var(--amber)">"PACHO"</small></div><div class="person-role">Primer socio de Ernesto Damo en las droguerías. Vinculado a DAYDES y DEFF S.A. Su hijastro es Fernando Huidobro (apellido de la madre). </div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">DEFF</span></div></div>
+    <div class="person-row"><div class="person-name">RÍOS, MIGUEL</div><div class="person-role">Segundo socio de Damo en las droguerías. Sus hijas: María Marta Ríos y Carolina Luján Ríos (socia en METABOLIK). <strong style="color:#e87060">Fallecido.</strong> Su nieta Agustina Marchisio trabajó en Autonomía Medicinal SRL junto a José María Lago.</div><div class="person-orgs"><span class="org-pill">DAYDES</span></div></div>
+    <div class="person-row"><div class="person-name">LAGO, LILIANA PATRICIA</div><div class="person-role">Parte en la sucesión de Ernesto Damo. Sometida a presiones: retiro de medicamentos (provistos toda su vida por las droguerías) y amenazas económicas para forzar su firma. <strong style="color:#e87060">Fallecida en 2025.</strong></div><div class="person-orgs"><span class="org-pill">Sucesión</span></div></div>
+    <div class="person-row"><div class="person-name">ÁLVAREZ LEMBEYE, MATÍAS</div><div class="person-role">Abogado. Su padre representó a Ernesto Damo. Representó simultáneamente a las tres partes de la sucesión. Consintió el retiro de medicamentos a Liliana Lago para que firmara documentos. Pidió reunirse con el dev sin la presencia de Liliana.<div class="doc-btns"><span class="doc-btn red-btn" onclick="openProof('ALVAREZ.png','Mail acuerdo Flora/Autonomía/Daydes')" title="Ver: Mail acuerdo Flora/Autonomía/Daydes">📄 Mail acuerdo Flora/Autonomía/Daydes</span></div></div><div class="person-orgs"><span class="org-pill">Sucesión</span><span class="org-pill">DAYDES</span></div></div>
+    <div class="person-row"><div class="person-name">HUIDOBRO, FERNANDO</div><div class="person-role">Hijastro de José María Della Giovanna (apellido de la madre). Trabaja en DAYDES y HOLTER. Director suplente de DEFF S.A. Pareja de Caregnato.</div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">HOLTER</span><span class="org-pill">DEFF</span></div></div>
+    <div class="person-row"><div class="person-name">CAREGNATO, M. SOLEDAD</div><div class="person-role">Pareja de Huidobro. "Socia de confianza" para operaciones fuera de radar. Presidenta de DEFF S.A. Directora suplente de METABOLIK. Ambas sociedades con irregularidades graves omitidas en el peritaje.</div><div class="person-orgs"><span class="org-pill">DEFF</span><span class="org-pill">METABOLIK</span></div></div>
+    <div class="person-row"><div class="person-name">COSTA, MARIANO</div><div class="person-role">Familiar de José María Della Giovanna. Trabaja en DAYDES, Trust Medical y DEFF S.A.<div class="doc-btns"><span class="doc-btn" onclick="openProof('MARIANO_COSTA.png','Foto / Prueba')" title="Ver: Foto / Prueba">📄 Foto / Prueba</span></div></div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">TRUST</span><span class="org-pill">DEFF</span></div></div>
+    <div class="person-row"><div class="person-name">MARCHISIO, AGUSTINA</div><div class="person-role">Nieta de Miguel Ríos. Trabajó en DAYDES S.A. y en Autonomía Medicinal SRL junto a José María Lago.<div class="doc-btns"><span class="doc-btn" onclick="openProof('MARCHISIO.png','Foto / Prueba')" title="Ver: Foto / Prueba">📄 Foto / Prueba</span></div></div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">AUTONOMÍA</span></div></div>
+    <div class="person-row"><div class="person-name">FUCHS, MIRTA</div><div class="person-role">Farmacéutica. Trabajó en Print Med, Trust Médica y Autonomía Medicinal SRL junto a José María Lago.<div class="doc-btns mirta-btns">
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTA_F.png','Print Med — Registro DT')" title="Ver">📄 Print Med S.A. — Habilitación DT</span>
+<div class="doc-trans"><strong>Transcripción:</strong> Registro sanitario — Print Med S.A. · Matrícula: 10731 · Rubro: Productos Médicos y Productos para Diagnóstico de uso in vitro · Domicilio legal y depósito: Gelly y Obes N° 4763, José C. Paz, Buenos Aires · <em>Director Técnico Responsable: Mirta FUCHS</em></div>
+</div>
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTAF2.png','ANMAT — Autonomía Medicinal')" title="Ver">📄 Disposición ANMAT — DT Autonomía Medicinal (2018)</span>
+<div class="doc-trans"><strong>Transcripción:</strong> Disposición ANMAT — Ref. Expte. N° 1-0047-3110-00012-18-8 · DROGUERÍA AUTONOMÍA MEDICINAL S.R.L., Legajo N° 262 · Art. 1°: Se limita a la Farmacéutica MARISA ISABEL RIERA (Mat. 11.276) como DT · Art. 2°: Se designa a la Farmacéutica <em>MIRTA FUCHS</em> (DNI 10.831.229, Mat. N° 9.231) como nueva Directora Técnica, a partir del 02/01/2018.</div>
+</div>
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTAF3.png','LinkedIn — Daydes')" title="Ver">📄 LinkedIn — DT en Droguería DAYDES</span>
+<div class="doc-trans"><strong>Descripción:</strong> Perfil público de LinkedIn donde Mirta Fuchs figura con cargo <em>"Directora Técnica en Droguería DAYDES"</em>. Droguería Daydes, Argentina.</div>
+</div>
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTAF4.png','LinkedIn — Autonomía')" title="Ver">📄 LinkedIn — DT en Autonomía Medicinal</span>
+<div class="doc-trans"><strong>Descripción:</strong> Perfil público de LinkedIn donde Mirta Fuchs figura con cargo <em>"Dirección Técnica en Autonomía Medicinal SRL"</em>. Acredita su rol DT simultáneo en múltiples sociedades del grupo.</div>
+</div>
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTAF5.png','ANMAT — Daydes Tránsito')" title="Ver">📄 Disposición ANMAT N° 2126 — Daydes Tránsito (2012)</span>
+<div class="doc-trans"><strong>Transcripción:</strong> ANMAT — Ministerio de Salud — Disposición N° 2126 (2012) · Art. 1°: Se habilita a DAYDES S.A. (San Lorenzo 1640, San Miguel, Pcia. Buenos Aires) bajo la dirección técnica de la Farmacéutica <em>Mirta FUCHS</em> (Mat. N° 10.731) para efectuar <em>TRÁNSITO INTERJURISDICCIONAL DE MEDICAMENTOS Y ESPECIALIDADES MEDICINALES</em>.</div>
+</div>
+
+<div class="doc-entry">
+<span class="doc-btn" onclick="openProof('MIRTAF6.png','ANMAT — Autonomía DT (v2)')" title="Ver">📄 Disposición ANMAT — DT Autonomía Medicinal (v2)</span>
+<div class="doc-trans"><strong>Transcripción:</strong> Disposición ANMAT — Expte. N° 1-0047-3110-00012-18-8 · Designación de <em>MIRTA FUCHS</em> (Mat. 9.231) como Directora Técnica de DROGUERÍA AUTONOMÍA MEDICINAL S.R.L., en reemplazo de Marisa Isabel Riera. Firmado por el Administrador Nacional de ANMAT.</div>
+</div>
+
+</div></div><div class="person-orgs"><span class="org-pill">PRINT MED</span><span class="org-pill">TRUST</span><span class="org-pill">AUTONOMÍA</span></div></div>
+    <div class="person-row"><div class="person-name">DI SANTE, SUSANA</div><div class="person-role">Farmacéutica (DT). Trabajó en Print Med y Trust Médica.<div class="doc-btns"><span class="doc-btn" onclick="openProof('susana_di_dante_DT.png','DT — Prueba')" title="Ver: DT — Prueba">📄 DT — Prueba</span></div></div><div class="person-orgs"><span class="org-pill">PRINT MED</span><span class="org-pill">TRUST</span></div></div>
+    <div class="person-row"><div class="person-name">ROCHETTI, GUSTAVO</div><div class="person-role">Mano derecha de Sebastián Damo en DAYDES. Mano derecha de Sebastián Damo en sus negocios en Paraguay y en el Comex de Daydes.</div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">MIX TRADING</span></div></div>
+    <div class="person-row"><div class="person-name">VINCI, FERNANDO</div><div class="person-role">Contador. Trabajó en Autonomía Medicinal (con Lago) y DAYDES. Figura en escritura de Mix Trading Paraguay (1 cuota).</div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">AUTONOMÍA</span><span class="org-pill">MIX TRADING</span></div></div>
+    <div class="person-row"><div class="person-name">ZANINI, GABRIELA</div><div class="person-role">DT principal de DAYDES. Jefa de todos los Directores Técnicos de la red. Su hermano Luis trabaja como vendedor en TRUST MÉDICA.</div><div class="person-orgs"><span class="org-pill">DAYDES</span></div></div>
+    <div class="person-row"><div class="person-name">GONZÁLEZ, NÉLIDA</div><div class="person-role">Tía de José María Lago. Trabajó en DAYDES y Autonomía Medicinal. Actualmente en HOLTER. Ex directora suplente de DAYDES (documentado en Boletín Oficial).<div class="doc-btns">
+<div class="doc-entry" style="display:block;margin-top:6px;">
+<span class="doc-btn" onclick="openProof('daydesfoto_grupal_nelida.jpg','Foto grupal — Oficinas Daydes')" title="Ver foto">📄 Foto grupal — Oficinas Daydes</span>
+<div class="doc-trans">NÉLIDA GONZÁLEZ, ANGELA PERUGINI, HORACIO F. Y GABRIELA ZANINI EN LAS OFICINAS DE DAYDES. (TAMBIÉN SE ENCUENTRA PRESENTE MATÍAS LEMOS, QUIEN TRABAJÓ EN COMEX EN DAYDES. ES ÍNTIMO AMIGO DE JOSÉ MARÍA LAGO.)</div>
+</div><span class="doc-btn" onclick="openProof('daydes_nelida.png','Daydes — Nélida B.O.')" title="Ver: Daydes — Nélida B.O.">📄 Daydes — Nélida B.O.</span></div></div><div class="person-orgs"><span class="org-pill">DAYDES</span><span class="org-pill">AUTONOMÍA</span><span class="org-pill">HOLTER</span></div></div>
+    <div class="person-row"><div class="person-name">PRUDENTE, ANA MARÍA</div><div class="person-role">Primera trabajadora de DAYDES. Principal encargada de administración, licitaciones y contaduría.</div><div class="person-orgs"><span class="org-pill">DAYDES</span></div></div>
+    <div class="person-row"><div class="person-name">PERUGINI, ANGELA</div><div class="person-role">Ex cuñada de Sebastián Damo (tía de Julieta y Luna). Encargada de administración de DAYDES y comunicación entre droguerías. Responsable de comercio exterior.<div class="doc-btns"><span class="doc-btn" onclick="openProof('daydes01.png','Daydes — B.O. Perugini')" title="Ver: Daydes — B.O. Perugini">📄 Daydes — B.O. Perugini</span></div></div><div class="person-orgs"><span class="org-pill">DAYDES</span></div></div>
+  </div>
+</section>
+<!-- ══ DEV ══ -->
+<section class="page-section" id="page-dev">
+  <div class="section-title"><h2>Comentario del Dev</h2><span class="tag">2E</span></div>
+  <div class="dev-comment">
+    <p>Para esclarecer, aporto este sitio donde están seleccionadas, organizadas y detalladas, las pruebas más importantes para poder comprender, de forma intuitiva y fluida, el claro modus operandi de las sociedades, desde su fundación (mismo año en el que se fundó la Municipalidad de San Miguel — año 1994). Además de la evidente rotación de las mismas personas entre las droguerías y sociedades (mismas farmacéuticas, familiares de los socios, etc.)</p>
+    <p>Como fue aclarado en el sitio, las capturas presentadas son del iPhone X que pertenecía a Damo Domingo Ernesto. Las pruebas están protegidas y duplicadas en varios backups, tanto de forma digital como física.</p>
+    <p>Estas pruebas siempre fueron usadas para uso interno, para facilitar el estudio de las conexiones de las sociedades, y sus implicados. Ahora, decido su exposición dado el recurrente desestimo de tan claras comprobaciones.</p>
+    <p>Todo lo expuesto en este sitio, son archivos, testimonios e informaciones de carácter público (como los boletines oficiales) ya mencionados y acusados en varios tramos del proceso sucesorio, desde hace años.</p>
+    <p>Incluso fueron llamativamente desestimados en el último peritaje contable.</p>
+    <p><strong>Quede aclarado:</strong> una gran cantidad de los documentos públicos aquí expuestos, los más cruciales, requieren del arduo trabajo de simplemente googlear los nombres de las sociedades. No hace falta ser un hacker ni un detective.</p>
+    <p style="color:var(--amber);font-style:italic;border-top:1px solid var(--border);padding-top:16px;margin-top:16px;">"Sumus legio. Non ignoscimus. Non obliviscimur. Exspectate nos."</p>
+  </div>
+</section>
+
+<!-- ══ LEGAL ══ -->
+<section class="page-section" id="page-legal">
+  <div class="section-title"><h2>Posibles Delitos</h2><span class="tag">2F</span></div>
+  <div class="legal-grid">
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito Principal</div>
+      <div class="legal-title">Licitaciones arregladas con municipalidades — Fraccionamiento y cartelización</div>
+      <div class="legal-body">La red de droguerías (DAYDES, Autonomía Medicinal, Print Med, Trust Médica) operaba coordinadamente en licitaciones públicas municipales para proveer medicamentos e insumos al Estado. La concurrencia aparente entre sociedades relacionadas y con el mismo personal encubría un acuerdo anticompetitivo. Posibles figuras: Art. 1 y 2 Ley 27.442 (Defensa de la Competencia), fraude en licitación pública (CP Art. 265 y concordantes), administración fraudulenta (CP Art. 173 inc. 7).</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito</div>
+      <div class="legal-title">Sociedades aparentemente independientes con personal compartido</div>
+      <div class="legal-body">Mirta Fuchs, Susana Di Sante, Nélida González, Fernando Vinci y otros trabajadores figuran en múltiples droguerías simultáneamente. Este esquema permite presentar ofertas en la misma licitación como competidoras distintas, cuando en realidad responden al mismo controlador (Sebastián Damo). Posible figura: simulación de competencia (fraude licitatorio).</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito</div>
+      <div class="legal-title">Triangulación de fondos — Mix Trading Paraguay</div>
+      <div class="legal-body">Sociedad en Paraguay con control casi total de Sebastián (111/112 cuotas). Actividad en Paraguay. Sin evidencia de actividad comercial legítima transparente. Posible esquema de lavado o evasión fiscal: Ley 25.246 (Lavado de Activos), evasión agravada (Ley 24.769 Art. 2).</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito</div>
+      <div class="legal-title">Administración fraudulenta post-fallecimiento de socios</div>
+      <div class="legal-body">Sebastián Damo recupera control de DETAL PA 1 mes después de la muerte de Pachuli. Caregnato asume DEFF S.A. en el mismo período. Patrón sistemático de apropiación societaria en perjuicio de herederos legítimos. CP Art. 173 inc. 7 (administración fraudulenta), posible defraudación a herederos.</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito</div>
+      <div class="legal-title">Coacción y extorsión sobre Liliana Lago</div>
+      <div class="legal-body">Retiro de medicamentos de por vida para forzar firma de documentos en la sucesión. Amenaza de cese de pagos si buscaba otro asesor legal. Pedido explícito de reunirse sin ella presente. Posibles figuras: coacción (CP Art. 149 bis), extorsión (CP Art. 168).</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-type">⚠ Delito</div>
+      <div class="legal-title">METABOLIK S.A. — Sociedad pantalla / logística fantasma</div>
+      <div class="legal-body">Sin contacto público identificable. Participan Caregnato y Carolina Ríos (hija del socio fallecido). Omitida en el peritaje oficial. Flujo económico opaco entre partes relacionadas. Posible uso como pantalla para facturación apócrifa vinculada a licitaciones.</div>
+    </div>
+    <div class="legal-card amber">
+      <div class="legal-type amber">ℹ Irregularidad</div>
+      <div class="legal-title">Omisión de sociedades en peritaje oficial de la sucesión</div>
+      <div class="legal-body">METABOLIK S.A. y DEFF S.A. fueron omitidas o minimizadas en el peritaje oficial. Ambas tienen flujo económico opaco con partes relacionadas y participación directa en la red societaria del causante.</div>
+    </div>
+    <div class="legal-card amber">
+      <div class="legal-type amber">ℹ Irregularidad</div>
+      <div class="legal-title">Álvarez Lembeye — Representación múltiple en sucesión</div>
+      <div class="legal-body">Representó simultáneamente a Florencia Damo, Sebastián Damo y Liliana Lago en la misma sucesión. Afirmó desconocer las droguerías, lo cual fue comprobadamente falso. Consintió activamente la presión sobre Liliana Lago.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-filename" id="modal-title">—</div>
+      <div class="modal-controls">
+        <button class="modal-btn" onclick="downloadProof()">⬇ Descargar</button>
+        <button class="modal-btn close" onclick="closeModal()">✕ Cerrar</button>
+      </div>
+    </div>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">DOSSIER — Documentación de Pruebas &nbsp;|&nbsp; <span>Proyecto Tor</span></div>
+  <div class="footer-right">Pruebas presentadas: ~60% del total archivado<br>iPhone X del fallecido disponible para pericia</div>
+</footer>
+
+<script src="js/app.js"></script>
 </body>
 </html>
