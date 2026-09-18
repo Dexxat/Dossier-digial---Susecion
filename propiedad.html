@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propiedad — Dossier de la sucesión</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="banner-borrador" hidden>
+    Datos de ejemplo — reemplazar en <code>js/data.js</code> con la información real de los contratos.
+  </div>
+
+  <div id="contenido-propiedad">
+    <header class="encabezado encabezado-propiedad">
+      <div class="contenedor">
+        <a class="volver" href="index.html">← Volver al dossier</a>
+        <h1 id="nombre-propiedad"></h1>
+        <p class="subtitulo" id="direccion-propiedad"></p>
+      </div>
+    </header>
+
+    <main class="contenedor">
+      <section class="bloque">
+        <h2>Descripción</h2>
+        <p class="bloque-intro" id="descripcion-propiedad"></p>
+        <ul class="caracteristicas-lista" id="caracteristicas-propiedad"></ul>
+      </section>
+
+      <section class="bloque">
+        <h2>Cronología de alquileres</h2>
+        <p class="bloque-intro">Cada período corresponde a un contrato de alquiler, con su monto mensual y fechas de vigencia.</p>
+        <div id="timeline-propiedad"></div>
+      </section>
+
+      <section class="bloque">
+        <h2>Detalle de contratos</h2>
+        <div id="tabla-alquileres"></div>
+      </section>
+
+      <section class="bloque">
+        <h2>Gastos de mantenimiento</h2>
+        <div id="tabla-gastos"></div>
+      </section>
+
+      <section class="bloque">
+        <h2>Totales de la propiedad</h2>
+        <div class="tarjetas-total">
+          <div class="tarjeta-total ingreso">
+            <span>Ingresos por alquiler</span>
+            <strong id="total-ingresos">—</strong>
+          </div>
+          <div class="tarjeta-total gasto">
+            <span>Gastos de mantenimiento</span>
+            <strong id="total-gastos">—</strong>
+          </div>
+          <div class="tarjeta-total">
+            <span>Neto</span>
+            <strong id="total-neto">—</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="pie contenedor" data-meta="notaPie"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/propiedad.js"></script>
+</body>
+</html>
